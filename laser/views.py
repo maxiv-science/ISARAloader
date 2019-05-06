@@ -3,17 +3,36 @@ from django.shortcuts import render, get_object_or_404, redirect, render_to_resp
 import json
 import requests
 
+import serial
 
-
-# Create your views here.
+ser = serial.Serial()
+ser.port = '/dev/cu.usbmodem14513101'
+ser.baudrate = 9600
+ser.timeout = 1
+# open port if not already open
+if ser.isOpen() == False:
+    ser.open()
 
 
 def load_isara(request):
     url='https://webjive.maxiv.lu.se/biomax/db'
 
     q = {'query': '{\n  device(name: "b311a-e/ctl/cats-01") {\n    attributes(pattern:"CassettePresence") {\n        name\n      value\n}\n    }\n  }\n  '}
+    positiondict={"position1":50,"position2":60,"position3":70}
 
 
+    puckposition="None"
+    puckposition=str(request.GET.get("puckpos"))
+    data=''
+    if "None" not in puckposition:
+        puckposition=puckposition.replace("position","")
+        pos=int(puckposition)
+
+
+        data=bytes([9])+bytes([pos])
+        data+=bytes([10])+bytes([pos])
+
+        ser.write(data)
     out=requests.post(url, data=json.dumps(q)).json()
 
     active=out["data"]["device"]["attributes"][0]["value"]
@@ -24,6 +43,7 @@ def load_isara(request):
             activeList.append("#82be00")
         else:
             activeList.append("#fea901")
+
     return render(request, 'laser/isara.html', {
         "active":activeList,
         "status1":activeList[0],
@@ -54,5 +74,6 @@ def load_isara(request):
         "status26":activeList[25],
         "status27":activeList[26],
         "status28":activeList[27],
-        "status29":activeList[28]            
+        "status29":activeList[28],
+        "outp":puckposition
     })
