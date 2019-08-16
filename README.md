@@ -13,3 +13,8 @@ Check data ports on Arduino. Current is "9" for tilt and "10" for pan. Can be an
 python3 manage.py migrate
 
 python3 manage.py runserver 0.0.0.0:8081
+
+
+Use https://github.com/SurferTim/documentation/blob/6bc583965254fa292a470990c40b145f553f6b34/configuration/wireless/access-point.md 
+
+to setup AP on rpi and connect the controller device (iPad) to the system.
