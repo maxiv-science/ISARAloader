@@ -5,7 +5,7 @@
 import curses
 from RpiMotorLib import rpi_pservo_lib
 from time import sleep
-import json
+import pickle
 from os import path
 
 # https://github.com/gavinlyonsrepo/RpiMotorLib/blob/master/Documentation/Servo_pigpio.md
@@ -16,9 +16,9 @@ laser_servo = rpi_pservo_lib.ServoPigpio("Sone", 50, 1000, 2000)
 
 tilt_pan = {"tilt": 1500, "pan": 1500}
 
-if path.exists("baskets.json"):
-    with open("baskets.json", "r", encoding="UTF-8") as json_file:
-        baskets = json.load(json_file)
+if path.exists("/home/pi/baskets.pickle"):
+    with open("/home/pi/baskets.pickle", "rb") as pickle_file:
+        baskets = pickle.load(pickle_file)
     print(baskets)
 else:
     baskets = {
@@ -104,10 +104,9 @@ def main(stdscr):
 
     def save_tilt_pan():
         print("saving tilt and pan values for current basket")
-        jsond = json.dumps(baskets)
-        f = open("baskets.json", "w")
-        f.write(jsond)
-        f.close()
+        
+        with open("/home/pi/baskets.pickle", "wb") as writeFile:
+            pickle.dump(baskets, writeFile)
 
     # do not wait for input when calling getch
     stdscr.nodelay(1)
