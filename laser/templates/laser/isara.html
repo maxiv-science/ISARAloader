@@ -3,39 +3,100 @@
 <head>
     <title> ISARA Sample Changer </title>
     <style>
-        .button1 {
+      .whole-page{
+            zoom: 80%;
+
+      }
+      .button1 {
           background-color: #e2e2e2;
           color: black;
-          border: 2px solid #000000;
-          border-radius: 8px;
-          height:60px;
-          font-size : 20px;
-          cursor:pointer;
-
+          border: 1px solid #c5c5c5;
+          border-radius: 50%;
+          height: 100px;
+          width: 100px;
+          font-size: 15px;
+          cursor: pointer;
+          position: absolute;
+          top: 20px;
+          left: calc(50% - 350px);
+        }
+        .button2 {
+          background-color: #e2e2e2;
+          color: black;
+          border: 1px solid #c5c5c5;
+          border-radius: 50%;
+          height: 100px;
+          width: 100px;
+          font-size: 15px;
+          cursor: pointer;
+          position: absolute;
+          top: 20px;
+          left: calc(50% + 250px);
+        }
+        .button3 {
+          background-color: #e2e2e2;
+          color: black;
+          border: 1px solid #c5c5c5;
+          border-radius: 50%;
+          height: 100px;
+          width: 100px;
+          font-size: 15px;
+          cursor: pointer;
+          position: absolute;
+          left: calc(50% + 250px);
+          top: 420px;
+        }
+        .button4 {
+          background-color: #e2e2e2;
+          color: black;
+          border: 1px solid #c5c5c5;
+          border-radius: 50%;
+          height: 100px;
+          width: 100px;
+          font-size: 15px;
+          cursor: pointer;
+          position: absolute;
+          left: calc(50% - 350px);
+          top: 420px;
         }
         a {
             text-decoration: none;
             display: inline-block;
         }
 
-        .unipuck {
+        .unipuck-free {
             color: black;
-            width: 114px;
-            height: 114px;
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
             border-width: 1px;
-            border-color: black;
-            font-size: xx-large;
+            border-color: #8abf26;
+            background-color:#a5ce59;
+            font-size: 16px;
             cursor:pointer;
         }
-        .spine {
-            color: white;
-            width: 114px;
-            height: 114px;
+        .unipuck-occupied {
+            color: black;
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
             border-width: 1px;
-            border-color: black;
-            font-size: xx-large;
+            border-color: #fea901;
+            background-color:#feb627;
+            font-size: 16px;
+            cursor:pointer;
+        }
+        
+        .unipuck-disabled {
+            color: black;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            border-width: 1px;
+            border-color: #f70303;
+            background-color:#f70e0e;
+            font-size: 16px;
+            cursor:pointer;
         }
         center {
             margin: auto;
@@ -46,12 +107,13 @@
         }
         .circle-container {
           position: relative;
-          width: 40em;
-          height: 40em;
-          padding: 5em;
+          width: 530px;
+          height: 530px;
+          
           border: solid 3px;
           border-radius: 50%;
-          margin: 1.75em auto 0;
+          margin: 0px auto 0;
+          
           }
         .circle-container a {
           display: block;
@@ -79,71 +141,317 @@
             font-size:27pt;
             align:center;
         }
+        .puckButton {
+            background-color:#c1dd8c;
+            border-radius:10px;
+            border:1px solid #a5ce59;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:20px;
+            padding:14px 20px;
+            text-decoration:none;
+          }
+        .puckButton:hover {
+          background-color:#a5ce59;
+          }
+        .puckButton:active {
+          position:relative;
+          top:1px;
+          }
+        .dewarButton {
+            background-color:#e2e2e2;
+            border-radius:10px;
+            border:1px solid #c5c5c5;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:13px;
+            padding:10px 16px;
+            text-decoration:none;
+            margin-top: 5px;
+          }
+        .dewarButton:hover {
+          background-color:#c5c5c5;
+          }
+        .dewarButton:active {
+          position:relative;
+          top:1px;
+          }
+        
+
+
+        .circle-container-puck {
+          position: relative;
+          width: 120px;
+          height: 120px;
+          padding: 10px; 
+          border: dashed 2px;
+          border-radius: 50%;
+          margin: 1.75em auto 0;
+        }
+        .circle-container-puck button {
+          display: block;
+          overflow: hidden;
+          position: absolute;
+          border-radius: 50%;
+          font-size: 4.5px;
+          top: 50%; left: 50%;
+          width: 5.5em; height: 5.5em;
+          margin: -2.75em; /* 2em = 4em/2 */ /* half the width */
+        }
+          .circle-container-puck img { display: block; width: 100%; }
+          .deg6  { transform: rotate(270.00deg)   translate(11.5em)   rotate(-270.00deg) ; } 
+          .deg16  { transform: rotate(302.72deg)  translate(11.5em)   rotate(-302.72deg) ; }
+          .deg15  { transform: rotate(335.44deg)  translate(11.5em)   rotate(-335.44deg) ; }
+          .deg14  { transform: rotate(8.150deg)   translate(11.5em)   rotate(-8.150deg)  ; }
+          .deg13  { transform: rotate(40.870deg)  translate(11.5em)   rotate(-40.870deg) ; }
+          .deg12  { transform: rotate(73.590deg)  translate(11.5em)   rotate(-73.590deg) ; }
+          .deg11  { transform: rotate(106.30deg)  translate(11.5em)   rotate(-106.30deg) ; }
+          .deg10  { transform: rotate(139.00deg)  translate(11.5em)   rotate(-139.00deg) ; }
+          .deg9   { transform: rotate(171.70deg)  translate(11.5em)   rotate(-171.70deg) ; }
+          .deg8   { transform: rotate(204.40deg)  translate(11.5em)   rotate(-204.40deg) ; }
+          .deg7   { transform: rotate(237.10deg)  translate(11.5em)   rotate(-237.10deg) ; }
+
+          .deg1  { transform: rotate(270deg) translate(5em)  rotate(-270deg); }
+          .deg5  { transform: rotate(342deg) translate(5em)  rotate(-342deg); }
+          .deg4  { transform: rotate(414deg) translate(5em)  rotate(-414deg); }
+          .deg3  { transform: rotate(486deg) translate(5em)  rotate(-486deg); }
+          .deg2  { transform: rotate(558deg) translate(5em)  rotate(-558deg); }
+
+          .firstrow{
+            padding-top: 50px;
+          }
+          .sample-empty{
+            border-color: #c5c5c5;
+            background-color:#e2e2e2;
+          }
+          .sample-filled{
+            border-color: #8abf26;
+            background-color:#a5ce59;
+          }
+         
+          .puckContainer{
+            margin-left: 10px;
+            {% comment %} zoom: 0.2;
+            -moz-transform: scale(0.2); {% endcomment %}
+          }
+          .btn-text{
+            margin: -5;
+            font-size: 12px;
+          }
+          .puck-name{
+                margin-left: 3px;
+                font-size: 22px;
+                text-align: center;
+                font-family: sans-serif;
+                border-radius: 8px;
+          }
+          .pucks-in-dewar{
+            display:flex; 
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            
+          }
+          .selectpuck-btn{
+            width: 100% !important;
+            height: 100% !important;
+            {% comment %} margin: -665px !important; {% endcomment %}
+            margin: -70px !important;
+            background-color: #0000 !important;
+            border: 0px !important;  
+            opacity: 0.8;
+            font-size: 50px;
+          }
+
+          #overlay {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2;
+            cursor: pointer;
+          }
+
+          #text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 32px;
+            color: white;
+            font-family:sans-serif;
+            transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+          }
+          
     </style>
 
 </head>
 
-<body>
+<body class="whole-page">
+
+    <div id="overlay" >
+      <div id="text">Processing your request</div>
+    </div>
     <center>
+        <button class="button1" value="Refresh Page" onClick="window.location.href='/isara'"> Sync ISARA </button>
+        <button class="button2" value="Login" onclick="window.location.href='/duo_login'"> Manage Session </button>
+        
+        {% comment %} <form class="forms-sample" name="form" action="{% url "unload_pucks_ISARA" %}" method="post">      
+            <input class="button3" type="submit" value="Unload&#x00A;Pucks" ></input>            
+        </form> {% endcomment %}
+        <form action="/isara" method="get" id="unloadpucks" name="unloadALL" size="1">
+          <button class="button3" type="submit" value="unloadALL" name="unloadbutton" size="1" >Unload Pucks</button>
+        </form> 
+        <button class="button4" value="Login" onclick="window.location.href='/safe_pucks'"> Settings </button>
+        
         <div class="middle">
             <div class='circle-container'>
-                <form action="/isara" method="get" id="pos" style="padding-top:25px">
-                  <button class="unipuck" style="background-color: {{status1}};" type="submit" value="position1" name="puckpos" size="1">1</button>
-                  <button class="unipuck" style="background-color: {{status2}};" type="submit" value="position2" name="puckpos" size="1">2</button>
-                  <button class="unipuck" style="background-color: {{status3}};" type="submit" value="position3" name="puckpos" size="1">3</button>
-                  <button class="unipuck" style="background-color: {{status4}};" type="submit" value="position4" name="puckpos" size="1">4</button>
-                  <button class="unipuck" style="background-color: {{status5}};" type="submit" value="position5" name="puckpos" size="1">5</button>
+                <form class="firstrow" action="/isara" method="get" id="pos" >
+                  <button class="{{status1}}" onclick="overlayon()" type="submit" value="position1" name="puckpos" size="1">1</button>
+                  <button class="{{status2}}" onclick="overlayon()" type="submit" value="position2" name="puckpos" size="1">2</button>
+                  <button class="{{status3}}" onclick="overlayon()" type="submit" value="position3" name="puckpos" size="1">3</button>
+                  <button class="{{status4}}" onclick="overlayon()" type="submit" value="position4" name="puckpos" size="1">4</button>
+                  <button class="{{status5}}" onclick="overlayon()" type="submit" value="position5" name="puckpos" size="1">5</button>
                 </form>
 
                <form action="/isara" method="get" id="pos" >
-                  <button class="unipuck" style="background-color: {{status6}};" type="submit" value="position6" name="puckpos" size="1">6</button>
-                  <button class="unipuck" style="background-color: {{status7}};" type="submit" value="position7" name="puckpos" size="1">7</button>
-                  <button class="unipuck" style="background-color: {{status8}};" type="submit" value="position8" name="puckpos" size="1">8</button>
-                  <button class="unipuck" style="background-color: {{status9}};" type="submit" value="position9" name="puckpos" size="1">9</button>
-                  <button class="unipuck" style="background-color: {{status10}};" type="submit" value="position10" name="puckpos" size="1">10</button>
-                  <button class="unipuck" style="background-color: {{status11}};" type="submit" value="position11" name="puckpos" size="1">11</button>
+                  <button class="{{status6}}" onclick="overlayon()" type="submit" value="position6" name="puckpos" size="1">6</button>
+                  <button class="{{status7}}" onclick="overlayon()" type="submit" value="position7" name="puckpos" size="1">7</button>
+                  <button class="{{status8}}" onclick="overlayon()" type="submit" value="position8" name="puckpos" size="1">8</button>
+                  <button class="{{status9}}" onclick="overlayon()" type="submit" value="position9" name="puckpos" size="1">9</button>
+                  <button class="{{status10}}" onclick="overlayon()" type="submit" value="position10" name="puckpos" size="1">10</button>
+                  <button class="{{status11}}" onclick="overlayon()" type="submit" value="position11" name="puckpos" size="1">11</button>
                 </form>
 
                 <form action="/isara" method="get" id="pos" >
-                  <button class="unipuck" style="background-color: {{status12}};" type="submit" value="position12" name="puckpos" size="1">12</button>
-                  <button class="unipuck" style="background-color: {{status13}};" type="submit" value="position13" name="puckpos" size="1" >13</button>
-                  <button class="unipuck" style="background-color: {{status14}};" type="submit" value="position14" name="puckpos" size="1" >14</button>
-                  <button class="unipuck" style="background-color: {{status15}};" type="submit" value="position15" name="puckpos" size="1" >15</button>
-                  <button class="unipuck" style="background-color: {{status16}};" type="submit" value="position16" name="puckpos" size="1">16</button>
+                  <button class="{{status12}}" onclick="overlayon()" type="submit" value="position12" name="puckpos" size="1">12</button>
+                  <button class="{{status13}}" onclick="overlayon()" type="submit" value="position13" name="puckpos" size="1">13</button>
+                  <button class="{{status14}}" onclick="overlayon()" type="submit" value="position14" name="puckpos" size="1">14</button>
+                  <button class="{{status15}}" onclick="overlayon()" type="submit" value="position15" name="puckpos" size="1">15</button>
+                  <button class="{{status16}}" onclick="overlayon()" type="submit" value="position16" name="puckpos" size="1">16</button>
                 </form>
 
                <form action="/isara" method="get" id="pos" >
-                  <button class="unipuck" style="background-color: {{status17}};" type="submit" value="position17" name="puckpos" size="1">17</button>
-                  <button class="unipuck" style="background-color: {{status18}};" type="submit" value="position18" name="puckpos" size="1" >18</button>
-                  <button class="unipuck" style="background-color: {{status19}};" type="submit" value="position19" name="puckpos" size="1" >19</button>
-                  <button class="unipuck" style="background-color: {{status20}};" type="submit" value="position20" name="puckpos" size="1" >20</button>
-                  <button class="unipuck" style="background-color: {{status21}};" type="submit" value="position21" name="puckpos" size="1" >21</button>
-                  <button class="unipuck" style="background-color: {{status22}};" type="submit" value="position22" name="puckpos" size="1">22</button>
+                  <button class="{{status17}}" onclick="overlayon()" type="submit" value="position17" name="puckpos" size="1">17</button>
+                  <button class="{{status18}}" onclick="overlayon()" type="submit" value="position18" name="puckpos" size="1">18</button>
+                  <button class="{{status19}}" onclick="overlayon()" type="submit" value="position19" name="puckpos" size="1">19</button>
+                  <button class="{{status20}}" onclick="overlayon()" type="submit" value="position20" name="puckpos" size="1">20</button>
+                  <button class="{{status21}}" onclick="overlayon()" type="submit" value="position21" name="puckpos" size="1">21</button>
+                  <button class="{{status22}}" onclick="overlayon()" type="submit" value="position22" name="puckpos" size="1">22</button>
                 </form>
 
 
                 <form action="/isara" method="get" id="pos" >
-                  <button class="unipuck" style="background-color: {{status23}};" type="submit" value="position23" name="puckpos" size="1">23</button>
-                  <button class="unipuck" style="background-color: {{status24}};" type="submit" value="position24" name="puckpos" size="1" >24</button>
-                  <button class="unipuck" style="background-color: {{status25}};" type="submit" value="position25" name="puckpos" size="1" >25</button>
-                  <button class="unipuck" style="background-color: {{status26}};" type="submit" value="position26" name="puckpos" size="1" >26</button>
-                  <button class="unipuck" style="background-color: {{status27}};" type="submit" value="position27" name="puckpos" size="1">27</button>
+                  <button class="{{status23}}" onclick="overlayon()" type="submit" value="position23" name="puckpos" size="1">23</button>
+                  <button class="{{status24}}" onclick="overlayon()" type="submit" value="position24" name="puckpos" size="1">24</button>
+                  <button class="{{status25}}" onclick="overlayon()" type="submit" value="position25" name="puckpos" size="1">25</button>
+                  <button class="{{status26}}" onclick="overlayon()" type="submit" value="position26" name="puckpos" size="1">26</button>
+                  <button class="{{status27}}" onclick="overlayon()" type="submit" value="position27" name="puckpos" size="1">27</button>
                 </form>
 
                 <form action="/isara" method="get" id="pos" >
-                  <button class="unipuck" style="background-color: {{status28}};" type="submit" value="position28" name="puckpos" size="1">28</button>
-                  <button class="unipuck" style="background-color: {{status29}};" type="submit" value="position29" name="puckpos" size="1">29</button>
+                  <button class="{{status28}}" onclick="overlayon()" type="submit" value="position28" name="puckpos" size="1">28</button>
+                  <button class="{{status29}}" onclick="overlayon()" type="submit" value="position29" name="puckpos" size="1">29</button>
                 </form>
 
 
             </div>
         </div>
         <div>
-        <br>
-        <h2>Current laser position: {{outp}} </h2>
-        <button class="button1" value="Refresh Page" onClick="window.location.reload();"> Sync from ISARA </button>
+          Proposal: {{proposal}}<br>
+          {% comment %} Selected shipment: {{select_shipment}} {% endcomment %}
+          <form action="/isara" method="get" id="shipment_form" >
+          {% for key,value in shipments.items %}
+            <button class="button dewarButton" id="{{key}}" value="{{key}}" onclick="overlayon()" name="select_shipment"> {{key}} </button>
+          {% endfor %}
+          </form>
+          
+          {% comment %} Selected puck: {{containerId}}   {% endcomment %}
+          <form action="/isara/" method="get" id="puck_form" >
+          <div class="pucks-in-dewar">
+          {% if sample_avail == "OK" %}
+          {% for value,key,puck1,puck2,puck3,puck4,puck5,puck6,puck7,puck8,puck9,puck10,puck11,puck12,puck13,puck14,puck15,puck16 in samples_in_pucks_status %}           
+
+              <div >
+                <div class='circle-container-puck puckContainer'>
+                  <button href='#'  class='deg1  {{puck1}}' >  <p class="btn-text" >1</p>	</button>
+                  <button href='#'  class='deg2  {{puck2}}' >  <p class="btn-text" >2</p> 	</button>
+                  <button href='#'  class='deg3  {{puck3}}' >  <p class="btn-text" >3</p> 	</button>
+                  <button href='#'  class='deg4  {{puck4}}'  >  <p class="btn-text" >4</p> 	</button>
+                  <button href='#'  class='deg5  {{puck5}}'  >  <p class="btn-text" >5</p> 	</button>
+                  <button href='#'  class='deg6  {{puck6}}'  >  <p class="btn-text" >6</p> 	</button>
+                  <button href='#'  class='deg7  {{puck7}}' >  <p class="btn-text" >7</p> 	</button>
+                  <button href='#'  class='deg8  {{puck8}}'  >  <p class="btn-text" >8</p> 	</button>
+                  <button href='#'  class='deg9  {{puck9}}' >  <p class="btn-text" >9</p> 	</button>
+                  <button href='#'  class='deg10 {{puck10}}'>  <p class="btn-text" >10</p> 	</button>
+                  <button href='#'  class='deg11 {{puck11}}'>  <p class="btn-text" >11</p> 	</button>
+                  <button href='#'  class='deg12 {{puck12}}'>  <p class="btn-text" >12</p> 	</button>
+                  <button href='#'  class='deg13 {{puck13}}'>  <p class="btn-text" >13</p> 	</button>
+                  <button href='#'  class='deg14 {{puck14}}' >  <p class="btn-text" >14</p> 	</button>
+                  <button href='#'  class='deg15 {{puck15}}' >  <p class="btn-text" >15</p> 	</button>
+                  <button href='#'  class='deg16 {{puck16}}' >  <p class="btn-text" >16</p> 	</button>
+                  <button href='#'  onclick="overlayon()" id="click-{{value}}" value="{{value}}" onClick="window.location.reload();" name="containerId" class='selectpuck-btn' >  	</button>
+                </div>
+                <p class="puck-name" id={{value}}>{{key}}</p>
+              </div>
+
+
+
+            
+          {% endfor %}
+          {% endif %}
+          </div>
+          </form>
+          
         </div>
     </center>
 </body>
+
+<script>
+
+function overlayon() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function overlayoff() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+function color_selected() { 
+  if (Number.isInteger(parseInt({{containerId}}))) {
+  document.getElementById({{containerId}}).style.background= "#c1dd8c"
+  }
+
+}
+function update_mounted_pucks(containerId,position){
+  if (Number.isInteger(parseInt(position))){
+    document.getElementById("click-"+containerId).innerHTML = "Position "+position
+    document.getElementById("click-"+containerId).setAttribute("style", "background-color: #feb627 !important; font-size:20px");
+    }
+  
+
+}
+
+  {% for containerId,position in puck_mounted_dict.items %}           
+  update_mounted_pucks({{containerId}},{{position}})
+  {% endfor %}
+
+if ("{{select_shipment}}"!== "None"){
+  document.getElementById("{{select_shipment}}").setAttribute("style", "background-color: #feb627 !important; border: 1px solid #fea901")
+}
+if("{{containerId}}" !== "None"){
+  color_selected()
+}
+
+</script>
 
 </html>

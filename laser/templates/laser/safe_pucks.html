@@ -1,0 +1,281 @@
+<html>
+
+<head>
+    <title> ISARA Sample Changer </title>
+    <style>
+        .button4 {
+          background-color: #e2e2e2;
+          color: black;
+          border: 1px solid #c5c5c5;
+          border-radius: 50%;
+          height: 100px;
+          width: 100px;
+          font-size: 15px;
+          cursor: pointer;
+          position: absolute;
+          left: calc(50% - 350px);
+          top: 420px;
+        }
+        .button5 {
+          background-color: #e2e2e2;
+          color: black;
+          border: 1px solid #c5c5c5;
+          border-radius: 10px;
+          height: 80px;
+          width: 140px;
+          font-size: 15px;
+          cursor: pointer;
+          margin: 10px;
+
+          
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+
+        center {
+            margin: auto;
+            vertical-align: middle;
+        }
+        .round {
+            border-radius: 50%;
+        }
+        .circle-container {
+          position: relative;
+          width: 530px;
+          height: 530px;
+          
+          border: solid 3px;
+          border-radius: 50%;
+          margin: 0px auto 0;          
+          }
+        .circle-container a {
+          display: block;
+          overflow: hidden;
+          position: absolute;
+          top: 50%; left: 50%;
+          width: 6.0em; height: 6.0em;
+          margin: 0em;
+          text-size:20em;
+          }
+
+
+
+          .firstrow{
+            padding-top: 50px;
+          }     
+          .puckContainer{
+            margin-left: 10px;
+            {% comment %} zoom: 0.2;
+            -moz-transform: scale(0.2); {% endcomment %}
+          }
+          .btn-text{
+            margin: -5;
+            font-size: 12px;
+          }
+
+  .round {
+  position: relative;
+  margin: 0 24px 0 24px;
+}        
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 58px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 58px;
+  background-color: #dc1313;
+  border-color: #dc1313;
+}
+
+.round label:after {
+  
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: #8abf26;
+  border-color: #8abf26;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+        
+.row1{
+  display:flex;
+  margin: 72px 0px 0px 76px;
+
+}
+.row2{
+  display:flex;
+  margin: 72px 0px 0px -380px;
+
+}
+.row3{
+  display:flex;
+  margin: 72px 0px 0px -380px;  
+}
+.row4{
+  display:flex;
+  margin: 72px 0px 0px -360px;
+
+}
+.row5{
+  display:flex;
+  margin: 72px 0px 0px -380px;
+}
+.row6{
+  display:flex;
+  margin: 72px 0px 0px -230px;
+}
+    </style>
+
+</head>
+
+<body>
+   
+        
+        <center>
+        
+        <button class="button4" value="Login" onclick="window.location.href='/isara'"> Back </button>
+        
+        <div class="middle">
+            <div class='circle-container'>
+            
+                <div class="row1">
+                  <div class="round">  <input type="checkbox" id="puckpos1" {{state1}}   /> <label for="puckpos1" ></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos2" {{state2}}   /> <label for="puckpos2" ></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos3" {{state3}}   /> <label for="puckpos3" ></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos4" {{state4}}   /> <label for="puckpos4"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos5" {{state5}}   /> <label for="puckpos5"></label> </input></div>
+                <div>
+
+               <div class="row2">
+                  <div class="round">  <input type="checkbox" id="puckpos6"  {{state6}}  /> <label for="puckpos6"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos7"  {{state7}}  /> <label for="puckpos7"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos8"  {{state8}}  /> <label for="puckpos8"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos9"  {{state9}}  /> <label for="puckpos9"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos10" {{state10}}  /> <label for="puckpos10"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos11" {{state11}}  /> <label for="puckpos11"></label> </input></div>
+
+                <div>
+
+                <div class="row3">
+                  <div class="round">  <input type="checkbox" id="puckpos12"  {{state12}}  /> <label for="puckpos12"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos13"  {{state13}}  /> <label for="puckpos13"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos14"  {{state14}}  /> <label for="puckpos14"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos15"  {{state15}}  /> <label for="puckpos15"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos16"  {{state16}}  /> <label for="puckpos16"></label> </input></div>
+                <div>
+                <div class="row4">
+                  <div class="round">  <input type="checkbox" id="puckpos17"  {{state17}}  /> <label for="puckpos17"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos18"  {{state18}}  /> <label for="puckpos18"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos19"  {{state19}}  /> <label for="puckpos19"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos20"  {{state20}}  /> <label for="puckpos20"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos21"  {{state21}}  /> <label for="puckpos21"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos22"  {{state22}}  /> <label for="puckpos22"></label> </input></div>
+                <div>
+                <div class="row5">
+                  <div class="round">  <input type="checkbox" id="puckpos23"  {{state23}}  /> <label for="puckpos23"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos24"  {{state24}}  /> <label for="puckpos24"></label> </input></div>                  
+                  <div class="round">  <input type="checkbox" id="puckpos25"  {{state25}}  /> <label for="puckpos25"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos26"  {{state26}}  /> <label for="puckpos26"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos27"  {{state27}}  /> <label for="puckpos27"></label> </input></div>
+                <div>
+                <div class="row6">
+                  <div class="round">  <input type="checkbox" id="puckpos28"  {{state28}}  /> <label for="puckpos28"></label> </input></div>
+                  <div class="round">  <input type="checkbox" id="puckpos29"  {{state29}}  /> <label for="puckpos29"></label> </input></div>
+                <div>
+
+
+
+
+            </div>
+        </div>
+       
+        </div>
+        </div>
+                
+
+    </center>
+
+ <center>    
+
+    <form action="/safe_pucks/" method="get" id="savePositionsBtn" name="savePositions"
+      size="1" >
+      <button class="button5" type="submit"
+          onsubmit="return enabled_pos()" value="None"
+          id="savebtn" name="savebtn" size="1" >Save</button>
+    </form>
+        </center>
+
+</body>
+
+<script>
+
+var f3 = document.getElementById("savePositionsBtn");
+
+    f3.onsubmit = function enabled_pos() {
+        state_puckpos1=document.getElementById("puckpos1").checked
+        state_puckpos2=document.getElementById("puckpos2").checked
+        state_puckpos3=document.getElementById("puckpos3").checked
+        state_puckpos4=document.getElementById("puckpos4").checked
+        state_puckpos5=document.getElementById("puckpos5").checked
+        state_puckpos6=document.getElementById("puckpos6").checked
+        state_puckpos7=document.getElementById("puckpos7").checked
+        state_puckpos8=document.getElementById("puckpos8").checked
+        state_puckpos9=document.getElementById("puckpos9").checked
+        state_puckpos10=document.getElementById("puckpos10").checked
+        state_puckpos11=document.getElementById("puckpos11").checked
+        state_puckpos12=document.getElementById("puckpos12").checked
+        state_puckpos13=document.getElementById("puckpos13").checked
+        state_puckpos14=document.getElementById("puckpos14").checked
+        state_puckpos15=document.getElementById("puckpos15").checked
+        state_puckpos16=document.getElementById("puckpos16").checked
+        state_puckpos17=document.getElementById("puckpos17").checked
+        state_puckpos18=document.getElementById("puckpos18").checked
+        state_puckpos19=document.getElementById("puckpos19").checked
+        state_puckpos20=document.getElementById("puckpos20").checked
+        state_puckpos21=document.getElementById("puckpos21").checked
+        state_puckpos22=document.getElementById("puckpos22").checked
+        state_puckpos23=document.getElementById("puckpos23").checked
+        state_puckpos24=document.getElementById("puckpos24").checked
+        state_puckpos25=document.getElementById("puckpos25").checked
+        state_puckpos26=document.getElementById("puckpos26").checked
+        state_puckpos27=document.getElementById("puckpos27").checked
+        state_puckpos28=document.getElementById("puckpos28").checked
+        state_puckpos29=document.getElementById("puckpos29").checked
+
+        ISARA_state = state_puckpos1+","+state_puckpos2+","+state_puckpos3+","+state_puckpos4+","+state_puckpos5+","+state_puckpos6+","+state_puckpos7+","+state_puckpos8+","+state_puckpos9+","+state_puckpos10+","+state_puckpos11+","+state_puckpos12+","+state_puckpos13+","+state_puckpos14+","+state_puckpos15+","+state_puckpos16+","+state_puckpos17+","+state_puckpos18+","+state_puckpos19+","+state_puckpos20+","+state_puckpos21+","+state_puckpos22+","+state_puckpos23+","+state_puckpos24+","+state_puckpos25+","+state_puckpos26+","+state_puckpos27+","+state_puckpos28+","+state_puckpos29
+
+
+        document.getElementsByName("savebtn")[0].value = ISARA_state
+        console.log(ISARA_state)
+    }
+
+
+var f2 = document.getElementById("movelaserbtn");
+
+    f2.onsubmit = function pantilt() {
+        
+
+        ptilt = document.getElementById("pantiltval").value
+
+
+        document.getElementsByName("movebtn")[0].value = ptilt
+        console.log(ptilt)
+    }
+</script>
+
+</html>

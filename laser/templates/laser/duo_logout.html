@@ -1,0 +1,39 @@
+
+{% block content %}
+ 
+<h2>Login</h2>
+{{message}}
+
+{% if login_state == "0" %}
+<form class="forms-sample" name="form" action="{% url "duo_login" %}" method="post">
+{% csrf_token %}
+<input type="text" name="login" value="{{ source.title }}"><br><br>
+<input type="password" name="password" value="{{ source.title }}"><br><br>
+<button type="Submit" value="Submit" name="Submit" class="btn btn-primary">login</button>
+
+</form>
+{% else %}
+
+        <h3>Welcome you are signed in as {{ login }}</h3>    
+        <form class="forms-sample" name="form" action="{% url "load_isara" %}" method="post">
+            {% csrf_token %}        
+            <select class="selectbox datasetbox" name="proposalID">
+                <option disabled selected value> -- select a proposal -- </option>            
+                {% for proposal in proposals %}
+                <option value={{proposal}}>{{proposal}}</option>    
+                {% endfor %}                                    
+            </select>   
+        
+            
+            <input type="submit" value="Go to puck loader" ></input>
+
+        </form>
+       
+       <form class="forms-sample" name="form" action="duo_logout" method="post">
+            {% csrf_token %}        
+            <input type="submit" name="logout_btn" value="Logout" ></input>
+
+        </form>
+        
+{% endif %}
+{% endblock %}

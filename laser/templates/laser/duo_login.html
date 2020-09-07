@@ -1,0 +1,354 @@
+
+{% block content %}
+{% load static %}
+
+
+<style>
+    .maxiv-logo{
+        margin-top: 20px;
+    }
+    .back-isara-link{
+        position: absolute;
+        right: 40px;
+        padding-top: 15px;
+    }
+    /* BASIC */
+
+    html {
+    background-color: #8abf26;
+    }
+
+    body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    }
+
+    a {
+    color: #92badd;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+    }
+
+    h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display:inline-block;
+    margin: 40px 8px 10px 8px; 
+    color: #cccccc;
+    }
+
+
+
+    /* STRUCTURE */
+
+    .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+    }
+
+    #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+    }
+
+    #formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding-top: 25px;
+    text-align: center;
+    
+    }
+
+
+
+    /* TABS */
+
+    h2.inactive {
+    color: #cccccc;
+    }
+
+    h2.active {
+    color: #0d0d0d;
+    border-bottom: 2px solid #a5ce59;
+    }
+
+
+
+    /* FORM TYPOGRAPHY*/
+
+    input[type=button], input[type=submit], input[type=reset]  {
+    background-color: #82be00;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(65,81,35,0.4);
+    box-shadow: 0 10px 30px 0 rgba(65,81,35,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    }
+
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+    background-color: #82be00;
+    }
+
+    input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    }
+
+    input[type=password] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    }
+
+    input[type=password]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #a5ce59;
+    }
+
+    input[type=password]:placeholder {
+    color: #cccccc;
+    }
+
+
+
+    input[type=password]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #a5ce59;
+    }
+
+    input[type=password]:placeholder {
+    color: #cccccc;
+    }
+
+
+
+    input[type=text] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    }
+
+    input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #a5ce59;
+    }
+
+    input[type=text]:placeholder {
+    color: #cccccc;
+    }
+
+
+
+    input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #a5ce59;
+    }
+
+    input[type=text]:placeholder {
+    color: #cccccc;
+    }
+
+    /* ANIMATIONS */
+
+    /* Simple CSS3 Fade-in-down Animation */
+    .fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+    }
+
+    @keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+    }
+
+    /* Simple CSS3 Fade-in Animation */
+    .underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #82be00;
+    content: "";
+    transition: width 0.0s;
+    }
+
+    .underlineHover:hover {
+    color: #0d0d0d;
+    }
+
+    .underlineHover:hover:after{
+    width: 100%;
+    }
+
+
+
+    /* OTHERS */
+
+    *:focus {
+        outline: none;
+    } 
+
+    #icon {
+    width:60%;
+    }
+
+ </style>
+ 
+
+
+
+
+
+
+<link href="/static/styles/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="/static/styles/bootstrap.min.js"></script>
+<script src="/static/styles/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      {% comment %} <img src="https://media.maxiv.lu.se/2015/10/MAX-IV_logo1_rgb.png" id="icon" alt="User Icon" /> {% endcomment %}
+      <img class="maxiv-logo" src="/static/img/MAXIVlogo.png" id="icon" alt="User Icon" />
+
+    </div>
+
+    <!-- Login Form -->
+    
+    {% if login_state == "0" %}
+    <form class="forms-sample" name="form" action="{% url "duo_login" %}" method="post">
+    {% csrf_token %}
+    <input type="text"     name="login"    value="{{ source.title }}" placeholder="username"><br><br>
+    <input type="password" name="password" value="{{ source.title }}" placeholder="password"><br><br>
+    <button type="Submit" value="Submit" name="Submit" class="btn btn-primary">Login</button>
+    <a class="back-isara-link" href="/isara">Back to ISARA </a>
+    </form>
+    <!-- Logout -->
+    <div id="formFooter" style="padding-bottom: 25px !important;">
+      <h4>{{message}}</h4>
+    </div>
+    {% else %}
+
+        <h3>Welcome <br>you are signed in as {{ login }}</h3>    
+        <form class="forms-sample" name="form" action="{% url "load_isara" %}" method="post">
+            {% csrf_token %}        
+            <select class="selectbox datasetbox" name="proposalID">
+                <option disabled selected value> -- select a proposal -- </option>            
+                {% for proposal in proposals %}
+                <option value={{proposal}}>{{proposal}}</option>    
+                {% endfor %}                                    
+            </select>   
+            <br>
+            <input type="submit" value="Select" style="margin-top:20px !important; margin-bottom:20px !important"></input>
+        </form>
+        <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <form class="forms-sample" name="form" action="/duo_logout/" method="post" style="margin-block-end: 0em !important;">
+                {% csrf_token %}        
+                <input type="submit" name="logout_btn" value="Logout" ></input>
+            </form>
+    </div>
+        
+            
+    {% endif %}
+
+    
+
+  </div>
+</div>
+
+
+
+{% endblock %}
