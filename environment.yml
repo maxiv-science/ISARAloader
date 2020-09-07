@@ -1,4 +1,4 @@
-name: testenv2
+name: ISARAloader
 channels:
 - cbetters
 - conda-forge
