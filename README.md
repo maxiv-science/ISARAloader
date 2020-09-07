@@ -77,21 +77,20 @@ Your terminal will capture keyboard inputs and move the laser in pan-tilt
 Shortcuts
 | Keyboard shortcut  | Action |
 | ------------- | ------------- |
-
-|arrow up	| Move 1 degree up|
-|keypad 8	| Move 0.1 degree up|
-|arrow down	| Move 1 degree down|
-|keypad 2	| Move 0.1 degree down|
-|arrow right	| Move 1 degree right|
-|keypad 6	| Move 0.1 degree right|
-|arrow left	| Move 1 degree left|
-|keypad 4	| Move 0.1 degree left|
-|n	| Next basket|
-|p	| Previous basket|
-|s	| Save all baskets definitions |
-|spacebar	| Move laser to stored position for current basket |
-|r	| Reset angles for the current basket to [90,90] |
-|ESC	| Quits the program |
+| arrow up	| Move 1 degree up |
+| keypad 8	| Move 0.1 degree up |
+| arrow down	| Move 1 degree down |
+| keypad 2	| Move 0.1 degree down |
+| arrow right	| Move 1 degree right |
+| keypad 6	| Move 0.1 degree right |
+| arrow left	| Move 1 degree left |
+| keypad 4	| Move 0.1 degree left |
+| n	| Next basket |
+| p	| Previous basket |
+| s	| Save all baskets definitions  |
+| spacebar	| Move laser to stored position for current basket  |
+| r	| Reset angles for the current basket to [90,90]  |
+| ESC	| Quits the program  |
 
 One or more positions can be updated at any time. 
 
