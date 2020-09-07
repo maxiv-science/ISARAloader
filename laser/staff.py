@@ -1,0 +1,15 @@
+staff_list = [
+    "biomax-user",
+    "ishgor",
+    "gorgisyan",
+    "guslim",
+    "anagon",
+    "mirmil",
+    "uwemul",
+    "jienan",
+    "vlatal",
+    "johung",
+    "thours",
+    "oskaur",
+    "monbje",
+]
